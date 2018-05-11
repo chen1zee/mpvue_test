@@ -48,7 +48,9 @@ module.exports = {
     'import/prefer-default-export': 0,
     'eqeqeq': 0,
     'no-plusplus': 0,
-    'arrow-parens': 0
+    'arrow-parens': 0,
+    'no-param-reassign': 0,
+    'import/newline-after-import': 0
   },
   globals: {
     App: true,
