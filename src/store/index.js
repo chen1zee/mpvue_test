@@ -1,13 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import goods from "src/store/modules/goods/goods"
+import home from './home'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
     modules: {
-        goods
+        home
     }
 })
-
-export default store
