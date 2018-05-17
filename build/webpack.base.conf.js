@@ -17,7 +17,8 @@ const pages = {}
 Object.keys(router).forEach(key => {
     pages[key] = resolve(router[key])
 })
-const entry = Object.assign({}, appEntry, pages)
+// const entry = Object.assign({}, appEntry, pages)
+const entry = Object.assign({}, pages)
 
 module.exports = {
   // 如果要自定义生成的 dist 目录里面的文件路径，
@@ -42,6 +43,10 @@ module.exports = {
     },
     symlinks: false
   },
+  // externals: {
+  //     vue: 'vue',
+  //     vuex: 'vuex'
+  // },
   module: {
     rules: [
       {

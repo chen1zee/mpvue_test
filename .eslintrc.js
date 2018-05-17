@@ -35,10 +35,10 @@ module.exports = {
   // add your custom rules here
   'rules': {
     // don't require .vue extension when importing
-    'import/extensions': ['error', 'always', {
-      'js': 'never',
-      'vue': 'never'
-    }],
+    // 'import/extensions': ['error', 'always', {
+    //   'js': 'never',
+    //   'vue': 'never'
+    // }],
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {
       'optionalDependencies': ['test/unit/index.js']
@@ -65,10 +65,11 @@ module.exports = {
     'max-len': 0,
     'no-unused-expressions': 0,
     'no-mixed-operators': 0,
-    'no-unused-vars': 'warn'
+    'no-unused-vars': 'warn',
+    'import/extensions': 0
   },
   globals: {
-    ...globalsWordReplace,
+    ...globalsWordReplace, // config/word-replace.js 字段
     App: true,
     Page: true,
     wx: true,

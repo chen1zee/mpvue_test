@@ -5,7 +5,8 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    // assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../../mpvue_dist'), // 在同文件 生成资源
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: false,

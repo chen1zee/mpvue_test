@@ -1,12 +1,15 @@
 <template>
 <view class="container">
-
+    <view>home/Index</view>
+    <view @tap="add">add</view>
+    <view v-if="count % 2">count%2</view>
 </view>
 </template>
 
 <script>
 import alertModal from "src/utils/alert-modal"
 import { getMemberValidMember } from 'src/api/index'
+import checkWhereIAm from "src/utils/checkWhereIAm";
 import One from './components/one'
 
 /**
@@ -25,6 +28,7 @@ export default {
             wx.navigateTo({ url: '/pages/home/other' })
         },
         alertModal() {
+            checkWhereIAm()
             alertModal('sdsajodajdiosjdio')
         },
         async testRequest() {
@@ -48,7 +52,7 @@ export default {
 <style lang="less" scoped>
 @import "../../style/color";
 
-page{
+.page{
     background-color: @silver-light;
     min-height: 100%;
     overflow-x: hidden;
