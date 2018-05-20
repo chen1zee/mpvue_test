@@ -3,6 +3,7 @@
     <view>home/Index</view>
     <view @tap="add">add</view>
     <view v-if="count % 2">count%2</view>
+    <One />
 </view>
 </template>
 

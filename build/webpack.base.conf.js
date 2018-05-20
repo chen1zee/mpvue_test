@@ -60,7 +60,8 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'mpvue-loader',
+        // 换成 经过 修改 的 mpvue-loader
+        loader: resolve('../mpvue_loader_test/index.js'),
         options: vueLoaderConfig
       },
       {
@@ -69,7 +70,8 @@ module.exports = {
         use: [
           'babel-loader',
           {
-            loader: 'mpvue-loader',
+            // 换成 经过 修改 的 mpvue-loader
+            loader: resolve('../mpvue_loader_test/index.js'),
             options: {
               checkMPEntry: true
             }
