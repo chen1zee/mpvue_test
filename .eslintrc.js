@@ -66,7 +66,8 @@ module.exports = {
     'no-unused-expressions': 0,
     'no-mixed-operators': 0,
     'no-unused-vars': 'warn',
-    'import/extensions': 0
+    'import/extensions': 0,
+    'class-methods-use-this': 0
   },
   globals: {
     ...globalsWordReplace, // config/word-replace.js 字段

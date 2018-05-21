@@ -6,6 +6,7 @@ const vueLoaderConfig = require('./vue-loader.conf')
 const MpvuePlugin = require('webpack-mpvue-asset-plugin')
 const router = require('../config/router')
 const wordReplace = require('../config/word-replace')
+const WebpackBuildCompDependenciesPlugin = require('../WebpackBuildCompDependenciesPlugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -60,8 +61,10 @@ module.exports = {
       },
       {
         test: /\.vue$/,
+        // 暂时换回原来的
+        // loader: 'mpvue-loader',
         // 换成 经过 修改 的 mpvue-loader
-        loader: resolve('../mpvue_loader_test/index.js'),
+        loader: resolve('mpvue-loader/index.js'),
         options: vueLoaderConfig
       },
       {
@@ -70,8 +73,10 @@ module.exports = {
         use: [
           'babel-loader',
           {
+            // 暂时换回原来的
+            // loader: 'mpvue-loader',
             // 换成 经过 修改 的 mpvue-loader
-            loader: resolve('../mpvue_loader_test/index.js'),
+            loader: resolve('mpvue-loader/index.js'),
             options: {
               checkMPEntry: true
             }
@@ -106,6 +111,7 @@ module.exports = {
   },
   plugins: [
     new MpvuePlugin(),
-    new webpack.DefinePlugin(wordReplace)
+    new webpack.DefinePlugin(wordReplace),
+    new WebpackBuildCompDependenciesPlugin()
   ]
 }

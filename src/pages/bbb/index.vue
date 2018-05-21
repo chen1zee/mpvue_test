@@ -2,7 +2,7 @@
 <view class="container">
     <view>home/Index</view>
     <view @tap="add">add</view>
-    <view v-if="count % 2">count%2</view>
+    <view v-if="count % 2">count %2</view>
     <One />
 </view>
 </template>
@@ -14,7 +14,7 @@ import checkWhereIAm from "src/utils/checkWhereIAm";
 import One from './components/one'
 
 /**
- * 使用 home/store
+ * 使用 bbb/store
  * */
 export default {
     name: "index",
@@ -26,7 +26,7 @@ export default {
             this.$store.commit('POST_HOME_COUNT', this.count + 1)
         },
         goOther() {
-            wx.navigateTo({ url: '/pages/home/other' })
+            wx.navigateTo({ url: '/pages/bbb/other' })
         },
         alertModal() {
             checkWhereIAm()

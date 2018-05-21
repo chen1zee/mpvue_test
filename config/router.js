@@ -4,6 +4,6 @@
  * */
 
 module.exports = {
-    'pages/home/index': './src/pages/home/index.js',
-    'pages/home/other': './src/pages/home/other.js'
+    'pages/bbb/index': './src/pages/bbb/index.js'
+    // 'pages/bbb/other': './src/pages/bbb/other.js'
 }
