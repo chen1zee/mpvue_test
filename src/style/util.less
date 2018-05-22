@@ -1,0 +1,38 @@
+// 文字省略
+.text-ellipsis{
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+// 多行缩略
+.text-ellipsis-by-row(@row){
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: @row;
+    -webkit-box-orient: vertical;
+    // white-space 若为 nowrap 会影响 换行
+    white-space: normal;
+}
+
+// flex 水平居中 横向布局
+.flex-row-align-center() {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+// flex 垂直居中 纵向布局
+.flex-vertical-align-center() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+// 文本两端对齐
+.text-stretch{
+    text-align: justify;
+    text-align-last: justify;
+    // text-justify: distribute-all-lines;
+}

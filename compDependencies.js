@@ -18,7 +18,7 @@ function setHash(key, val) {
 }
 function getHash(key) {
     if (key) return _hash[key]
-    return _hash[key]
+    return _hash
 }
 
 module.exports = {

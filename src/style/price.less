@@ -1,0 +1,81 @@
+// <!-- 价格wxml -->
+// <view class="price-wrapper">
+//     <text class="icon-price"></text>
+//     <text class="price">{{ price }}</text>
+// </view>
+
+@import './color';
+@import './iconfont';
+
+/**
+ * 人民币符号函数 用于价格样式函数
+ * @param  {rpx}        @size:  30rpx         字体大小
+ * @param  {color}      @color: @red          字体颜色 默认红
+ * @param  {Boolean}    @bold:  false         是否粗体 默认细体
+ */
+._icon-price(@size: 30rpx, @color: @red, @bold: false){
+    position: relative;
+    width: @size;
+
+    &::before{
+        .iconfont();
+        content: "\e621";
+        color: @color;
+        font-size: @size;
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    & when (@bold = true) {
+        &::before{
+            content: "\e622";
+        }
+    }
+}
+
+/**
+ * 价格样式函数 ¥100
+ * @param  {rpx} @size:         24rpx         字体大小
+ * @param  {color} @color:      @red          字体颜色
+ * @param  {Boolean} @bold:     false         是否加粗
+ * @param  {Boolean} @disable:  false         是否带中间删除线
+ */
+._price(@size: 24rpx, @color: @red,  @bold: false, @disable: false){
+    position: relative;
+
+    height: @size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & when (@disable = true) {
+        // 中间删除线
+        &::after{
+            content: "";
+            background-color: @color;
+            opacity: 0.9;
+            height: 2rpx;
+            width: 100%;
+
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .icon-price{
+        ._icon-price(@size, @color, @bold);
+    }
+
+    .price{
+        font-size: @size;
+        color: @color;
+
+        & when (@bold = true) {
+            font-weight: 700;
+        }
+    }
+}

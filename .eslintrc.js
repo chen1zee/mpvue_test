@@ -67,7 +67,12 @@ module.exports = {
     'no-mixed-operators': 0,
     'no-unused-vars': 'warn',
     'import/extensions': 0,
-    'class-methods-use-this': 0
+    'class-methods-use-this': 0,
+    'import/no-unresolved': 0,
+    'prefer-arrow-callback': 0,
+    'func-names': 0,
+    // 删掉
+    'no-undef': 0
   },
   globals: {
     ...globalsWordReplace, // config/word-replace.js 字段

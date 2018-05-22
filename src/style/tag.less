@@ -1,0 +1,45 @@
+// <!-- tag wxml -->
+// <text class="tag">{{ tag }}</text>
+
+@import './color';
+
+/**
+ * 标签样式函数
+ * @param  {Boolean} @solid:    false           是否纯色标签 默认线条标签
+ * @param  {rpx} @size:         18rpx           字体大小
+ * @param  {color} @color:      @orange         字体颜色
+ * @param  {rpx} @paddingX:     5rpx            padding-left/right
+ * @param  {rpx} @paddingY:     3rpx            padding-top/bottom
+ * @param  {rpx} @radius:       3rpx            标签圆角
+ */
+._tag(@size: 20rpx, @color: @orange, @solid: false, @paddingX: 5rpx, @paddingY: 0, @radius: 2rpx){
+    font-size: @size;
+    padding: @paddingY @paddingX;
+    border-radius:  @radius;
+
+    // 纯色标签
+    & when (@solid = true) {
+        color: @white;
+        background-color: @color;
+    }
+
+    // 线条标签
+    & when (@solid = false) {
+        color: @color;
+        border: 1rpx solid @color;
+        margin-bottom: 1rpx; // 底部多加1px是为了把border-bottom显示出来
+    }
+}
+
+/**
+ * 耀卡专享 标签
+ */
+._tag-vip(@size: 20rpx, @paddingX: 5rpx, @paddingY: 0, @radius: 2rpx){
+    font-size: @size;
+    padding: @paddingY @paddingX;
+    border-radius: @radius;
+    color: rgba(255,220,144,0.90);
+
+    background: @gray-dark;
+    background-image: linear-gradient(19deg, rgba(251,185,80,0.00) 81%, rgba(251,185,80,0.50) 100%);
+}

@@ -7,11 +7,16 @@ class WebpackBuildCompDependenciesPlugin {
         compiler.plugin('done', () => {
             const dep = compDependencies.getDep()
             const hash = compDependencies.getHash()
-            fs.writeFile(path.resolve(__dirname, '../mpvue_dist/dep.json'), JSON.stringify(dep), err => {
-                if (!err) return
-                console.log(`*********[编译dep.json出错]*********`)
-                console.log(err)
-            })
+            this.writeFileToDist('dep.json', JSON.stringify(dep))
+            this.writeFileToDist('hash.json', JSON.stringify(hash))
+        })
+    }
+    // 输出文件到 mpvue_dist
+    writeFileToDist(fileName, content) {
+        fs.writeFile(path.resolve(__dirname, `../mpvue_dist/${fileName}`), content, err => {
+            if (!err) return
+            console.log(`*********[编译${fileName}出错]*********`)
+            console.log(err)
         })
     }
 }

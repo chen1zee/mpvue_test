@@ -7,6 +7,7 @@ const MpvuePlugin = require('webpack-mpvue-asset-plugin')
 const router = require('../config/router')
 const wordReplace = require('../config/word-replace')
 const WebpackBuildCompDependenciesPlugin = require('../WebpackBuildCompDependenciesPlugin')
+const externalsOptions = require('../config/externalsOptions')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -30,6 +31,8 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
+    // 定义 externals 使用的 加载方式
+    libraryTarget: 'commonjs',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
@@ -44,10 +47,7 @@ module.exports = {
     },
     symlinks: false
   },
-  // externals: {
-  //     vue: 'vue',
-  //     vuex: 'vuex'
-  // },
+  externals: externalsOptions,
   module: {
     rules: [
       {

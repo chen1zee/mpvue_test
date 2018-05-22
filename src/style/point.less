@@ -1,0 +1,64 @@
+// <!-- 积分wxml -->
+// <view class="point-wrapper">
+//     <text class="icon-point"></text>
+//     <text class="point">{{ point }}</text>
+//     <text class="point-label">积分</text>
+// </view>
+
+@import './color';
+@import './iconfont';
+
+/**
+ * 加号样式函数 用于积分样式函数
+ * @param  {rpx}        @size:  15rpx         字体大小
+ * @param  {color}      @color: @red          字体颜色 默认红
+ * @param  {Number}     @padding: 5rpx        符号左右padding 默认5rpx
+ */
+._icon-plus(@size: 15rpx, @color: @red, @padding: 5rpx){
+    position: relative;
+    width: @size;
+
+    padding-left: @padding;
+    padding-right: @padding;
+
+    &::before{
+        .iconfont();
+        content: "\e604";
+        color: @color;
+        font-size: @size;
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+/**
+ * 积分样式函数 +1000积分
+ * @param  {rpx} @size:             24rpx         字体大小
+ * @param  {color} @color:          @red          字体颜色
+ * @param  {rpx} @iconSize:         15rpx         icon大小
+ * @param  {rpx} @iconPadding:      5rpx          icon颜色
+ */
+._point(@size: 24rpx, @color: @red, @iconSize: 16rpx, @iconPadding: 5rpx){
+    position: relative;
+
+    height: @size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .icon-point{
+        ._icon-plus(@iconSize, @color, @iconPadding);
+    }
+
+    .point{
+        font-size: @size;
+        color: @color;
+    }
+
+    .point-label{
+        font-size: @size - 2;
+        color: @color;
+    }
+}

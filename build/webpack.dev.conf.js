@@ -56,11 +56,15 @@ module.exports = merge(baseWebpackConfig, {
       name: 'vendor',
       minChunks: function (module, count) {
         // any required modules inside node_modules are extracted to vendor
+        const resource = module.resource // 源文件路径
+        // 打包 node_modules/* // || 非.vue文件 && 引用超过1次
+        // 现在 只 处理 node_modules 包先，，，其余一律 各自打包进 entry
+        // 打包进 vendor 包
         return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
-          module.resource.indexOf('node_modules') >= 0
-        ) || count > 1
+          resource &&
+          /\.js$/.test(resource) &&
+          resource.indexOf('node_modules') >= 0
+        ) || (!/\.vue$/.test(resource) && count > 1)
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({

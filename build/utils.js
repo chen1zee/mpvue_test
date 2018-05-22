@@ -1,6 +1,7 @@
 var path = require('path')
 var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const lessLoaderOptions = require('../config/lessLoaderOptions')
 
 exports.assetsPath = function (_path) {
   var assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -64,7 +65,8 @@ exports.cssLoaders = function (options) {
     css: generateLoaders(),
     wxss: generateLoaders(),
     postcss: generateLoaders(),
-    less: generateLoaders('less'),
+    // 添加 自定义 less options
+    less: generateLoaders('less', lessLoaderOptions),
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),

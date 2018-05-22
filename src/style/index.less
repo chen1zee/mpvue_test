@@ -1,0 +1,92 @@
+@import './color';
+@import './tag';
+@import './price';
+@import './point';
+
+.container{
+    overflow-x: hidden;
+}
+// 首页的楼层
+.floor{
+    background-color: @white;
+    .floor-header{
+        width: 100%;
+        text-align: center;
+        height: 100rpx;
+        line-height: 100rpx;
+        font-size: 32rpx;
+        color: @gray;
+        &.line{
+            border-bottom: 1rpx solid @silver-lighter;
+        }
+    }
+
+    .floor-header-text{
+        // &:extend(.text-middle-line);
+        position: relative;
+
+        &:before, &:after{
+            content: " ";
+            background-color: @gray-light;
+            width: 40rpx;
+            height: 1rpx;
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &:before{
+            left: -60rpx;
+        }
+
+        &:after{
+            right:-60rpx;
+        }
+    }
+}
+.row{
+    width: 100%;
+}
+.col-2{
+    display: inline-block;
+    width: 375rpx;
+}
+.col-3{
+    display: inline-block;
+    width: 250rpx;
+}
+
+// 文本加前后中线
+.text-middle-line{
+    // position: relative;
+
+    // &:before, &:after{
+    //     content: " ";
+    //     background-color: @gray-light;
+    //     width: 40rpx;
+    //     height: 1rpx;
+
+    //     position: absolute;
+    //     top: 50%;
+    //     transform: translateY(-50%);
+    // }
+
+    // &:before{
+    //     left: -60rpx;
+    // }
+
+    // &:after{
+    //     right:-60rpx;
+    // }
+}
+
+// 线条标签
+.tag{
+    ._tag(20rpx, @orange);
+}
+
+// 纯色标签
+.tag-solid{
+    ._tag(20rpx, @orange, true);
+}
