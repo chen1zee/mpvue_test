@@ -64,7 +64,7 @@ module.exports = merge(baseWebpackConfig, {
           resource &&
           /\.js$/.test(resource) &&
           resource.indexOf('node_modules') >= 0
-        ) || (!/\.vue$/.test(resource) && count > 1)
+        ) || (!/\.vue$/.test(resource) && count > 2)
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({

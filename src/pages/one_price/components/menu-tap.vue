@@ -42,6 +42,7 @@ export default {
             // 过半屏
             const scrollLeftRpx = cellLeft - minCellMiddleLeft
             // src/pages/menu/index.wpy line:52 换算公式
+            console.log(this.windowWidth * scrollLeftRpx / 750)
             return this.windowWidth * scrollLeftRpx / 750
         }
     },
@@ -56,6 +57,7 @@ export default {
 
 <style lang="less">
 @import "src/style/color";
+@import "src/style/iconfont";
 
 @menuHeight: 70rpx;
 @cellWidth: 210rpx;
@@ -66,10 +68,10 @@ export default {
     background-color: @white;
     .border-bottom {
         position: absolute;
-        top: 0;
         bottom: 0;
+        left: 0;
         width: 100%;
-        border-bottom: 1rpx solid @silver-lighter;
+        border-top: 1rpx solid @silver-lighter;
     }
     .scroll {
         .usualOne(@menuHeight + 50);
@@ -84,10 +86,18 @@ export default {
                 @borderWidth: 4rpx;
                 .title {
                     display: inline-block;
+                    box-sizing: border-box;
                     border-bottom: @borderWidth solid transparent;
                     color: @gray-fade;
                     font-size: 26rpx;
                     line-height: @menuHeight - @borderWidth;
+                    height: @menuHeight;
+                    .icon-price {
+                        &::before {
+                            .iconfont();
+                            content: "\e621";
+                        }
+                    }
                     &.active {
                         border-bottom-color: @red;
                         color: @red;

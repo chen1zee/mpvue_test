@@ -6,5 +6,6 @@
  * */
 
 module.exports = {
-    'pages/one_price/index': './src/pages/one_price/index.js'
+    'pages/one_price/index': './src/pages/one_price/index.js',
+    'pages/first_publish/index': './src/pages/first_publish/index.js'
 }

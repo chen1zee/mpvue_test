@@ -2,7 +2,8 @@
 <scroll-view class="one-price__page" scroll-y>
     <view class="wrap">
         <Item v-for="(o_p_p_item, o_p_p_index) in goods"
-              :key="o_p_p_index" />
+              :key="o_p_p_index"
+              :itemData="o_p_p_item" />
     </view>
     <LoadMore :noMore="noMore" />
 </scroll-view>

@@ -56,10 +56,10 @@ export default {
                 this.caseSwiperChangeByMenu = false
                 return
             }
-            console.log('swiperChange', e)
+            this.categoryIndex = e.mp.detail.current
         },
         initGoodsPages() {
-            for (let i = 4; i--;) {
+            for (let i = 9; i--;) {
                 this.goodsPages.push({
                     goods: goodsMock,
                     noMore: false,
@@ -69,7 +69,7 @@ export default {
             }
         }
     },
-    onLoad() {
+    mounted() {
         this.initGoodsPages()
         try {
             const sysInfo = wx.getSystemInfoSync()
@@ -88,7 +88,7 @@ export default {
 <style lang="less">
 .one-price__index {
     box-sizing: border-box;
-    padding-top: 70rpx;
+    padding-top: 74rpx;
     height: 100%;
     .swiper {
         width: 100%;

@@ -20,11 +20,14 @@ function makeOptionsBase(base) {
  * */
 function makeOptionsWithChildren(base, children) {
     const tem = { [base]: { commonjs: `${LEVEL}${base}/index` } }
-    tem[`${base}/${children}`] = { commonjs: `${LEVEL}${base}/${children}` }
+    children.forEach(child => {
+        tem[`${base}/${child}`] = { commonjs: `${LEVEL}${base}/${child}` }
+    })
     return tem
 }
 
 module.exports = {
-    ...makeOptionsBase('api')
+    ...makeOptionsBase('api'),
+    ...makeOptionsWithChildren('actions', ['send-id-action'])
 }
 

@@ -6,6 +6,6 @@ app.$mount()
 
 export default {
     config: {
-        navigationBarTitleText: '一口价'
+        navigationBarTitleText: '新品首发'
     }
 }
