@@ -79,7 +79,7 @@ var webpackConfig = merge(baseWebpackConfig, {
               resource &&
               /\.js$/.test(resource) &&
               resource.indexOf('node_modules') >= 0
-          ) || (!/\.vue$/.test(resource) && count > 1)
+          ) || (!/\.vue$/.test(resource) && count > 2)
       }
     }),
     // extract webpack runtime and module manifest to its own file in order to
