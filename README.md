@@ -23,13 +23,15 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 # 项目说明
 
 ## 思路
-![one](./instruct/1.png)
+![mind](./instruct/1.png)
 
 ## 步骤
 1. 将 mpvue_test 项目 放在 wepy 项目 同级文件夹
 2. 运行 npm run dev || npm run build
 3. 会生成 dist 文件夹 mpvue_dist(在同级目录)
 4. 运行 gulp watch || gulp init 生成 mall_wxapp_final(最终项目)
+
+![files](./instruct/2.png)
 
 ## 注意点
 1. config/externalsOptions.js 配置 webpack 的 externals 选项，让mpvue 直接使用 wepy 上的资源，如 api、utils等
